@@ -1,0 +1,32 @@
+#修改默认的端口号
+server:
+  port: 9999
+  servlet:
+    context-path: /fastmail
+spring:
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: UTF-8
+  devtools:
+    restart:
+      enable: true #开启热部署：修改后台代码不用重启项目
+      additional-paths: src/main/java  #项目重启的目录
+  mvc:
+    static-path-pattern: /**
+  # 数据库连接
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/self_control_fastmail?zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxWait: 60000
+
+#配置mybatisplus
+mybatis-plus:
+  config-location:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
